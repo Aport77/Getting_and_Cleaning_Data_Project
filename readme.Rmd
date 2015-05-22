@@ -1,0 +1,47 @@
+---
+title: "Readme.md"
+author: "Aport"
+date: "22 мая 2015 г."
+output: html_document
+---
+# Codebook
+## Variable list and descriptions
+
+
+|Variable name|Descriptions|
+|-------------|------------|
+|url|sourse of data set|
+|f|name of the saved zip file|
+|path|path to the local copy of unziped dataset|
+|SubjTrain|extract subject data from train data|
+|SubjTest|extract subject data from test data|
+|Subj|merged train and test subject data|
+|ActivTrainY|extract activity data from train data|
+|ActivTestY|extract activity data from test data|
+|ActivY|merged train and test subject data|
+|ActivTrainX|extract measurement data from train data|
+|ActivTestX|extract measurement data from test data|
+|ActivX|merged train and test measurement data|
+|ColNames_X|extracted measurement names|
+|Meas_name|vector from measurement names|
+|Data|subseted mean and std measurement|
+|ActivNames|extracted activity labels|
+|Activity_set|merged activity with activity labels|
+|Data_set|merged data frame|
+|long|long format of Data_set|
+|summary|second tidy table|  
+
+## How in works
+
+1. Download and unzip files with ```download.file``` and ```unzip```
+2. Get data from files with ```read.table```
+3. Merge test and training sets with ```rbind```
+4. Get measurements names from _features.txt_
+5. Give appropriate names for columns with measurements with ```colnames```
+6. Subset columns with **mean** and **std** with ```grep```
+7. Get activities names from *activity_labels.txt*
+8. Merge activity names with activity numbers with ```merge```
+9. Create a data frame from subjects, activities with names and measurement data ```with data.frame```
+10. Reshape to a long format with ```melt```
+11. Summarize with mean values using ```summarize```
+12. Write output table *summary.txt* with ```write.table```
